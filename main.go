@@ -2,7 +2,7 @@
  * @Description:
  * @Author: chiwenda
  * @Date: 2022-09-23 21:05:00
- * @LastEditTime: 2022-10-23 15:54:41
+ * @LastEditTime: 2022-10-23 20:11:55
  * @LastEditors: chiwenda
  * @FilePath: /go-sombrero/main.go
  */
@@ -19,6 +19,10 @@ import (
 func main() {
 	//初始化viper
 	ctx.CTX_VIPER = config.Viper()
+	//初始化数据库
+	ctx.CTX_DB = config.Gorm()
+	//初始化zap日志
+	ctx.CTX_LOGGER = config.Zap()
 	//启动fiber服务
 	app := fiber.New(fiber.Config{
 		AppName: ctx.CTX_CONFIG.Name,

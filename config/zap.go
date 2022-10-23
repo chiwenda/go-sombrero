@@ -1,6 +1,23 @@
+/*
+ * @Description:
+ * @Author: chiwenda
+ * @Date: 2022-09-24 22:51:21
+ * @LastEditTime: 2022-10-23 20:09:41
+ * @LastEditors: chiwenda
+ * @FilePath: /go-sombrero/config/zap.go
+ */
 package config
 
-type Zap struct {
-	Level  string `mapstructure:"level" json:"level" yml:"level"`
-	Prefix string `mapstructure:"prefix" json:"prefix" yml:"prefix"`
+import (
+	"log"
+
+	"go.uber.org/zap"
+)
+
+func Zap() *zap.Logger {
+	logger, err := zap.NewProduction()
+	if err != nil {
+		log.Fatalf("init zap logger err:%v", err)
+	}
+	return logger
 }
