@@ -1,0 +1,4 @@
+#服务器配置
+[servers]
+    name="sombrero"#应用程序名称
+    port=8080 #端口号
