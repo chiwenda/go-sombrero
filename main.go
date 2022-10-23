@@ -1,1 +1,12 @@
-package go_sombrero
+package main
+
+import (
+	"fmt"
+	"path/filepath"
+)
+
+func main() {
+	fmt.Printf("=========")
+	p, _ := filepath.Abs("..")
+	fmt.Printf(p)
+}
